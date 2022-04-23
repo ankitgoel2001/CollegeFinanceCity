@@ -8,7 +8,6 @@ html {
   
   background: linear-gradient(90deg, #0000 calc(100% - var(--w)), #f1f0f0 0);
   background-size: calc((100% - var(--n)*var(--w))/(var(--n) + 1) + var(--w)) 100%;
-  background-color: #f9f9ff;;
   scroll-behavior: smooth;
 }
 
@@ -79,7 +78,7 @@ a:active { text-decoration: none; }
 }
 
 .formBox {
-    background-color: white;
+    background-color: #f9f9ff;
     height: 1000px;
     width: 800px;
     margin-top: 900px;
