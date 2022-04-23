@@ -8,16 +8,21 @@ html {
   
   background: linear-gradient(90deg, #0000 calc(100% - var(--w)), #f1f0f0 0);
   background-size: calc((100% - var(--n)*var(--w))/(var(--n) + 1) + var(--w)) 100%;
+  background-color: #f9f9ff;;
+  scroll-behavior: smooth;
 }
 
 
 body {
     font-family: Cern,Helvetica,Arial,sans-serif;
+    
 }
 
 .initialScreen {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .title {
@@ -41,7 +46,7 @@ body {
     justify-content: center;
     font-weight: bold;
     padding-bottom: 20px;
-    margin-left: 550px;
+    margin-left: -10px;
     border-radius: 12px;
     
 }
@@ -61,3 +66,33 @@ a:link { text-decoration: none; }
 a:visited { text-decoration: none; }
 a:hover { text-decoration: none; }
 a:active { text-decoration: none; }
+
+#fillForm {
+    color:  #383838;;
+    font-family: Heimat,Helvetica,Arial,sans-serif;
+    font-size: inherit;
+    text-rendering: optimizeLegibility;
+    line-height: 1.5;
+    margin-left: 200px;
+    margin-top: 400px;
+
+}
+
+.formBox {
+    background-color: white;
+    height: 1000px;
+    width: 800px;
+    margin-top: 900px;
+    margin-left: 200px;
+    position: absolute;
+    z-index: -1;
+    border: 5px solid gray;
+}
+
+input {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #000000;
+    padding: 2px 5px;
+    width: 650px;
+}
