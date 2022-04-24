@@ -1,0 +1,89 @@
+body {
+    font-family: Cern,Helvetica,Arial,sans-serif;
+    
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+}
+
+#boxModel {
+    width: 1200px;
+    height: 1000px;
+    padding: 50px;
+    margin: 20px;
+    margin-top: -500px;
+    margin-left: 100px;
+    border: solid 3px gray;
+    background-color: #f9f9ff;
+    position: absolute;
+    z-index: -1;
+    border-radius: 12px;
+}
+
+span {
+    font-weight: 400;
+}
+
+canvas {
+    height: 500px;
+    width: 500px;
+}
+
+#myProgress1, #myProgress2, #myProgress3, #myProgress4, #myProgress5 {
+    width: 400px;
+    background-color: grey;
+    margin-left: 50px;
+    border-radius: 12px;
+
+  }
+  
+  #myBar1, #myBar2, #myBar3, #myBar4, #myBar5 {
+    width: 1%;
+    height: 30px;
+    background-color: orange;
+          border-radius: 12px;
+
+  }
+
+  #progressBar {
+      display:flex;
+      flex-direction: column;
+      justify-content: center;
+      margin-left: 400px;
+      margin-top: 250px;
+  }
+
+  .progressRow {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: center;
+      margin-bottom: 40px;
+      margin-left: -100px;
+  }
+
+  #graph1 {
+      margin-left: 200px;
+  }
+
+
+  button {
+      margin-left: 10px;
+  }
+
+  label {
+      margin-right: 50px;
+  }
+
+  button {
+    background: #111111;
+    border: 1px solid rgba(0, 0, 0, 0);
+    cursor: pointer;
+    color: white;
+    border-radius: 12px;
+  }

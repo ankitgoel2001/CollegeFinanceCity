@@ -1,12 +1,377 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel = "stylesheet" type = "text/css" href = "{% static 'css/style2.css' %}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        var i = 0;
+        function move1() {
+        let value = document.getElementById("restaurant").value;
+        let costFactor = (value / "{{costData.restaurants}}" ) * 100;
+        if (i == 0) {
+            i = 1;
+            var elem = document.getElementById("myBar1")
+            var width = parseInt(elem.style.width.slice(0, -1))
+            if (isNaN(width)) {
+                width = 0
+            }
+            var id = setInterval(frame, 10);
+            count = 0
+            function frame() {
+            if (count >= costFactor ) {
+                clearInterval(id);
+                i = 0;
+            } else {
+                width++
+                count++
+                elem.style.width = width + "%";
+            }
+        }
+    }
+    }
+
+    var i = 0;
+        function move2() {
+        let value = document.getElementById("grocery").value;
+        let costFactor = (value / "{{costData.groceries}}" ) * 100;
+        if (i == 0) {
+            i = 1;
+            var elem = document.getElementById("myBar2")
+            var width = parseInt(elem.style.width.slice(0, -1))
+            if (isNaN(width)) {
+                width = 0
+            }
+            var id = setInterval(frame, 10);
+            count = 0
+            function frame() {
+            if (count >= costFactor ) {
+                clearInterval(id);
+                i = 0;
+            } else {
+                width++
+                count++
+                elem.style.width = width + "%";
+            }
+        }
+    }
+    }
+
+    var i = 0;
+        function move3() {
+        let value = document.getElementById("medical").value;
+        let costFactor = (value / "{{costData.medicalSupplies}}" ) * 100;
+        if (i == 0) {
+            i = 1;
+            var elem = document.getElementById("myBar3")
+            var width = parseInt(elem.style.width.slice(0, -1))
+            if (isNaN(width)) {
+                width = 0
+            }
+            var id = setInterval(frame, 10);
+            count = 0
+            function frame() {
+            if (count >= costFactor ) {
+                clearInterval(id);
+                i = 0;
+            } else {
+                width++
+                count++
+                elem.style.width = width + "%";
+            }
+        }
+    }
+    }
+
+    var i = 0;
+        function move4() {
+        let value = document.getElementById("travel").value;
+        let costFactor = (value / "{{costData.travel}}" ) * 100;
+        if (i == 0) {
+            i = 1;
+            var elem = document.getElementById("myBar4")
+            var width = parseInt(elem.style.width.slice(0, -1))
+            if (isNaN(width)) {
+                width = 0
+            }
+            var id = setInterval(frame, 10);
+            count = 0
+            function frame() {
+            if (count >= costFactor ) {
+                clearInterval(id);
+                i = 0;
+            } else {
+                width++
+                count++
+                elem.style.width = width + "%";
+            }
+        }
+    }
+    }
+
+    var i = 0;
+        function move5() {
+        let value = document.getElementById("other").value;
+        let costFactor = (value / "{{costData.others}}" ) * 100;
+        if (i == 0) {
+            i = 1;
+            var elem = document.getElementById("myBar5")
+            var width = parseInt(elem.style.width.slice(0, -1))
+            if (isNaN(width)) {
+                width = 0
+            }
+            var id = setInterval(frame, 10);
+            count = 0
+            function frame() {
+            if (count >= costFactor ) {
+                clearInterval(id);
+                i = 0;
+            } else {
+                width++
+                count++
+                elem.style.width = width + "%";
+            }
+        }
+    }
+    }
+
+    
+    </script>
+    
+
     <title>Document</title>
 </head>
 <body>
-    Hello World!
+    <div class = "container">
+        <div class = "title">
+            <h1><span>Finance Management for</span> {{data.firstName}} {{data.lastName}} at {{data.university}}</h1>
+        </div>
+           
+        <div id = "graph1" style = "height: 500px; width: 500px;">
+            <table>
+                <tr style = "max-height: 100px;">
+                   
+                    <td>
+                        <canvas id="myChart3" ></canvas>
+                    </td>
+                    <td style = "padding-left: 100px;">
+                        <canvas id="myChart"></canvas>
+            <p style = "margin-left: 30px;"><strong>Red</strong>: restaurant spending,<strong> Blue</strong>: Groceries spending</p>
+                    </td>
+                </tr>
+            </table>
+            <canvas id="myChart2"></canvas>
+            
+            
+          
+           
+        </div>
+        <script>
+            const data = [];
+const data2 = [];
+let prev = 100;
+let prev2 = 90;
+for (let i = 0; i < 365; i++) {
+  prev += 5 - Math.random() * 10;
+  data.push({x: i, y: prev});
+  prev2 += 5 - Math.random() * 10;
+  data2.push({x: i, y: prev2});
+}
+
+
+const totalDuration = 10000;
+const delayBetweenPoints = totalDuration / data.length;
+const previousY = (ctx) => ctx.index === 0 ? ctx.chart.scales.y.getPixelForValue(100) : ctx.chart.getDatasetMeta(ctx.datasetIndex).data[ctx.index - 1].getProps(['y'], true).y;
+        
+        const ctx = document.getElementById('myChart').getContext('2d');
+          const myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                datasets: [{
+                borderColor: 'red',
+                borderWidth: 1,
+                radius: 0,
+                data: data,
+                },
+                {
+                borderColor: 'blue',
+                borderWidth: 1,
+                radius: 0,
+                data: data2,
+                }]
+            },
+            options: {
+                animation: {
+                    x: {
+                        type: 'number',
+                        easing: 'linear',
+                        duration: delayBetweenPoints,
+                        from: NaN, // the point is initially skipped
+                        delay(ctx) {
+                        if (ctx.type !== 'data' || ctx.xStarted) {
+                            return 0;
+                        }
+                        ctx.xStarted = true;
+                        return ctx.index * delayBetweenPoints;
+                        }
+                    },
+                    y: {
+                        type: 'number',
+                        easing: 'linear',
+                        duration: delayBetweenPoints,
+                        from: previousY,
+                        delay(ctx) {
+                        if (ctx.type !== 'data' || ctx.yStarted) {
+                            return 0;
+                        }
+                        ctx.yStarted = true;
+                        return ctx.index * delayBetweenPoints;
+                        }
+                    }
+                },
+                interaction: {
+                intersect: false
+                },
+                plugins: {
+                legend: false
+                },
+                scales: {
+                x: {
+                    type: 'linear'
+                }
+                }
+            }
+      });
+
+      const ctx2 = document.getElementById('myChart2').getContext('2d');
+const myChart2 = new Chart(ctx2, {
+    type: 'bar',
+    data: {
+        labels: ['restaurants', 'groceries', 'medical', 'travel'],
+        datasets: [{
+            label: 'financial spending',
+            data: [12, 19, 3, 5, 2, 3],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+
+const ctx3 = document.getElementById('myChart3').getContext('2d');
+const myChart3 = new Chart(ctx3, {
+    type: 'pie',
+    data: {
+        labels: ['restaurants', 'groceries', 'medical', 'travel'],
+        datasets: [{
+            label: 'financial spending',
+            data: [12, 19, 3, 5, 2, 3],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+          </script>
+
+    
+        <div id = "boxModel">
+        
+        </div>
+            <div id = "progressBar">
+                <div class = "progressRow">
+                    <div id="myProgress1">
+                        <div id="myBar1"></div>
+                    </div>
+                    <button onclick="move1()">Update</button> 
+                    <input type = "number" name = "restaurant" id = "restaurant">
+                    <label for = "restaurant">Restaurant</label>
+                </div>         
+                <div class = "progressRow">
+                    <div id="myProgress2">
+                        <div id="myBar2"></div>
+                    </div>
+                    <button onclick="move2()">Update</button> 
+                    
+                    <input style = "margin-left: 20px;" type = "number" name = "grocery" id = "grocery">
+                    <label for = "grocery">Grocery</label>
+                </div>   
+                <div class = "progressRow">
+                    <div id="myProgress3">
+                        <div id="myBar3"></div>
+                    </div>
+                    <button onclick="move3()">Update</button> 
+                    
+                    <input style = "margin-left: 20px;" type = "number" name = "medical" id = "medical">
+                    <label for = "medical">Medical</label>
+                </div>   
+                <div class = "progressRow">
+                    <div id="myProgress4">
+                        <div id="myBar4"></div>
+                    </div>
+                    <button onclick="move4()">Update</button> 
+                    
+                    <input style = "margin-left: 30px;" type = "number" name = "travel" id = "travel">
+                    <label for = "travel">Travel</label>
+                </div> 
+                <div class = "progressRow">
+                    <div id="myProgress5">
+                        <div id="myBar5"></div>
+                    </div>
+                    <button onclick="move5()">Update</button> 
+                    
+                    <input style = "margin-left: 30px;" type = "number" name = "other" id = "other">
+                    <label for = "other">other</label>
+                </div>         
+            </div>
+        
+    </div>    
+        
+    </div>
 </body>
 </html>

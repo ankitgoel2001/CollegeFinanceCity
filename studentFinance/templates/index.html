@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Finance Quest</title>
     
-    <link rel = "stylesheet" type = "text/css" href = "{% static 'css/style.css' %}">
+    <link rel = "stylesheet" type = "text/css" href = "{% static 'css/style1.css' %}">
 </head>
 
 <body>
@@ -33,58 +33,57 @@
 
                 </div>
                 <div id = "fillForm">
-                    <form method = "POST" action = "/bank">
+                    <form method = "POST" action = "/studentFinance/home/bank/">
+                        {% csrf_token %}
                         <div class = "form-group">
                             <label for = "firstName">First Name: </label><br>
-                            <input required type = "text" name = "firstName" id = "firstName"><br><br>
+                            <input type = "text" name = "firstName" id = "firstName"><br><br>
                         </div>
                         <div class = "form-group">
                             <label for = "lastName">Last Name: </label><br>
-                            <input required type = "text" name = "lastName" id = "lastName"><br><br>
+                            <input  type = "text" name = "lastName" id = "lastName"><br><br>
                         </div>
                         <div class = "form-group">
                             <label for = "email">Email: </label><br>
-                            <input required type = "text" name = "email" id = "email"><br><br>
+                            <input  type = "text" name = "email" id = "email"><br><br>
                         </div>
                         <div class = "form-group">
                             <label for = "phoneNumber">Phone number: </label><br>
-                            <input required type = "text" name = "phoneNumber" id = "phoneNumber"><br><br>
+                            <input  type = "text" name = "phoneNumber" id = "phoneNumber"><br><br>
                         </div>
                         <div class = "form-group">
                             <label for = "university">University: </label><br>
-                            <input required type = "text" name = "university" id = "university"><br><br>
+                            <input  type = "text" name = "university" id = "university"><br><br>
                         </div>
                         <div class = "form-group">
                             <label for = "salary">Salary per month: </label><br>
-                            <input required type = "text" name = "salary" id = "salary"><br><br>
+                            <input  type = "text" name = "salary" id = "salary"><br><br>
                         </div>
                         <div class = "form-group">
                             <label for = "dining">Dining comon fees:</label><br>
-                            <input required type = "text" name = "dining" id = "dining"><br><br>
+                            <input  type = "text" name = "dining" id = "dining"><br><br>
                         </div>
                         <div class = "form-group">
                             <label for = "housing">Housing fees: </label><br>
-                            <input required type = "text" name = "housing" id = "housing"><br><br>
+                            <input  type = "text" name = "housing" id = "housing"><br><br>
                         </div>
                         <div class = "form-group">
                             <label for = "parking">Parking fees:  </label><br>
-                            <input required type = "text" name = "parking" id = "parking"><br><br>
+                            <input  type = "text" name = "parking" id = "parking"><br><br>
                         </div>
                         <div class = "form-group">
                             <label for = "annualTuition">Annual college tuition: </label><br>
-                            <input required type = "text" name = "annualTuition" id = "annualTuition"><br><br>
+                            <input  type = "text" name = "annualTuition" id = "annualTuition"><br><br>
                         </div>
                         <div class = "form-group">
-                            <label for = "budget">How much to spend max monthly?: </label><br>
-                            <input required type = "text" name = "budget" id = "budget"><br><br>
+                            <label for = "budget">How much to spend max?: </label><br>
+                            <input  type = "text" name = "budget" id = "budget"><br><br>
                         </div>
                         <div class = "form-group">
-                            <div class = "getStarted">
-                                <div class = "startedButton">
-                                    <a href = "bank/" style = "color: white">Submit</a>
-                                </div>
-                            </div>
+                            <label for = "budget">Submit</label><br>
+                          <input type="submit" value="Submit">
                         </div>
+
                     </form>
                 </div>
             
